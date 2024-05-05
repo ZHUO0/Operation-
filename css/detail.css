@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #cbdbe0;
+    padding-top: 100px;
+}
+html, body{
+    width: 100%;
+    overflow-x: hidden;
+}
+.w1200{
+    width: 1200px;
+    margin: 0 auto;
+}
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.title img{
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+.box{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    font-size: 26px;
+    line-height: 36px;
+    margin-bottom: 50px;
+    justify-content: space-between;
+}
+.box1 img{
+    width: 450px;
+}
+.box2 img{
+    width: 850px;
+}
+.box3{
+    padding: 0 50px;
+}
+.box3 img{
+    width: 400px;
+}
+.box4 img{
+    width: 450px;
+}
+.box4 .txt .cell{
+    margin-bottom: 80px;
+    position: relative;
+}
+.box4 .txt .cell span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.box4 .txt .cell i{
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
+    height: 2px;
+    background: #000;
+}
+.box4 .txt .cell2 i{
+    width: 80px;
+}
+.box4 .txt .cell2::before{
+    content: '';
+    display: block;
+    width: 2px;
+    height: 60px;
+    background: #000;
+    position: absolute;
+    left: 28px;
+    top: -60px;
+}
+.box4 .txt .cell2::after{
+    content: '';
+    display: block;
+    width: 2px;
+    height: 60px;
+    background: #000;
+    position: absolute;
+    right: 28px;
+    top: -60px;
+}
+.back{
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1000;;
+    display: block;
+    width: 60px;
+}
+.back img{
+    display: block;
+    width: 100%;
+    height: auto;
+}

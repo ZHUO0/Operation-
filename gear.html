@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collision</title>
+    <link rel="stylesheet" href="./css/gear.css" />
+  </head>
+  <body>
+    <div class="box-canvas">
+      <div class="cog cog-one active">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+      </div>
+      <div class="cog cog-two active">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+      </div>
+      <div class="cog cog-three active">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+      </div>
+      <div class="cog cog-four active">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+      </div>
+      <div class="cog cog-five active">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+      </div>
+      <!-- <div class="cog cog-six">
+            <div class="teeth vertical"></div>
+            <div class="teeth horizontal"></div>
+        <div> -->
+      <div class="result hide"></div>
+    </div>
+    <div class="example">
+      <div class="e e_1">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+        <span>Self</span>
+      </div>
+      <div class="e e_2">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+        <span>Living</span>
+      </div>
+      <div class="e e_3">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+        <span>Technology</span>
+      </div>
+      <div class="e e_4">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+        <span>Modernity</span>
+      </div>
+      <div class="e e_5">
+        <div class="teeth vertical"></div>
+        <div class="teeth horizontal"></div>
+        <span>Object</span>
+      </div>
+    </div>
+    <a class="back" href="index.html">
+      <img src="./images/back.png" alt="" />
+    </a>
+    <script src="./js/jquery-3.2.0.min.js" charset="UTF-8"></script>
+    <script>
+      $(function () {
+        const TxtList = [
+          "Semiotics",
+          "AI",
+          "Capitalism",
+          "The three ecologies",
+          "Superego",
+          "Object—Oriented Ontology",
+          "Hyperobjects",
+          "Self Identity",
+          "Consumerism",
+          "Disenchantment",
+        ];
+        $(".box-canvas").on("click", ".cog", function () {
+          if ($(this).hasClass("active")) {
+            $(this).parent().find(".cog").removeClass("active"); // 暂停
+            // 随机生成词
+            const txt = TxtList[Math.floor(Math.random() * 10)];
+            $(".result")
+              .text(txt || "Modernity")
+              .removeClass("hide")
+              .addClass("show");
+          } else {
+            $(this).parent().find(".cog").addClass("active"); // 转动
+            $(".result").removeClass("show").addClass("hide");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

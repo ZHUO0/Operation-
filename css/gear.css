@@ -1,0 +1,426 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box-canvas {
+    position: fixed;
+    top: 30%;
+    left: 10%;
+}
+
+.cog-one {
+    --cog-color: #f29a38;
+    --cog-accent-color: #f29a38;
+    --cog-inner-size: 30px;
+    --cog-outer-size: 50px;
+    --start-rotation: 360deg;
+    --end-rotation: 0deg
+}
+
+.cog-two {
+    --cog-color: #d94a3c;
+    --cog-accent-color: #d94a3c;
+    --cog-inner-size: 15px;
+    --cog-outer-size: 40px;
+    --start-rotation: 16deg;
+    --end-rotation: 376deg;
+    left: 120px;
+    top: 110px;
+    transform: rotate(var(--start-rotation))
+}
+
+.cog-three {
+    --cog-color: #4a7cdd;
+    --cog-accent-color: #4a7cdd;
+    --cog-inner-size: 20px;
+    --cog-outer-size: 50px;
+    --start-rotation: 300deg;
+    --end-rotation: -60deg;
+    left: 33px;
+    top: 210px;
+    transform: rotate(var(--start-rotation))
+}
+
+.cog-four {
+    --cog-color: #ebb754;
+    --cog-accent-color: #ebb754;
+    --cog-inner-size: 20px;
+    --cog-outer-size: 80px;
+    --start-rotation: 360deg;
+    --end-rotation: 0deg;
+    left: 240px;
+    top: 55px;
+    transform: rotate(var(--start-rotation))
+}
+
+.cog-five {
+    --cog-color: #469f5d;
+    --cog-accent-color: #469f5d;
+    --cog-inner-size: 20px;
+    --cog-outer-size: 30px;
+    --start-rotation: 18deg;
+    --end-rotation: 378deg;
+    left: 175px;
+    top: -1px;
+    transform: rotate(var(--start-rotation))
+}
+
+.cog {
+    position: absolute;
+    width: var(--cog-inner-size);
+    height: var(--cog-inner-size);
+    background: transparent;
+    border-radius: 50%;
+    border: var(--cog-outer-size) solid var(--cog-color);
+    cursor: pointer;
+}
+.cog.active{
+    animation: 5s cogRotate infinite linear
+}
+
+@keyframes cogRotate {
+    0% {
+        transform: rotate(var(--start-rotation))
+    }
+
+    100% {
+        transform: rotate(var(--end-rotation))
+    }
+}
+
+.cog::before {
+    content: '';
+    position: absolute;
+    width: calc(var(--cog-inner-size)+10px);
+    height: calc(var(--cog-inner-size)+10px);
+    border: 3px solid var(--cog-accent-color);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.cog::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--cog-inner-size)+var(--cog-outer-size) * 2 - 20px);
+    height: calc(var(--cog-inner-size)+var(--cog-outer-size) * 2 - 20px);
+    border: 3px solid var(--cog-accent-color);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.teeth.vertical {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.cog-one .teeth.vertical {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 170px;
+    width: 25px;
+    top: -70px
+}
+
+.cog-two .teeth.vertical {
+    width: 15px;
+    height: 125px;
+    top: -55px;
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 80px,var(--cog-color) 80px,var(--cog-color))
+}
+
+.cog-three .teeth.vertical {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 160px;
+    width: 25px;
+    top: -70px
+}
+
+.cog-four .teeth.vertical {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 220px;
+    width: 25px;
+    top: -100px;
+}
+
+.cog-five .teeth.vertical {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 90px,var(--cog-color) 90px,var(--cog-color));
+    height: 115px;
+    width: 15px;
+    top: -46px;
+}
+
+.teeth.vertical::after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg)
+}
+
+.cog-one .teeth.vertical::after {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 170px;
+    width: 25px
+}
+
+.cog-two .teeth.vertical::after {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 80px,var(--cog-color) 80px,var(--cog-color));
+    width: 15px;
+    height: 125px
+}
+
+.cog-three .teeth.vertical::after {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 160px;
+    width: 25px
+}
+.cog-four .teeth.vertical::after {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 220px;
+    width: 25px
+}
+.cog-five .teeth.vertical::after {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 90px,var(--cog-color) 90px,var(--cog-color));
+    height: 115px;
+    width: 15px
+}
+
+.teeth.horizontal {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%
+}
+
+.cog-one .teeth.horizontal {
+    left: -70px;
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 25px;
+    width: 170px
+}
+
+.cog-two .teeth.horizontal {
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 80px,var(--cog-color) 80px,var(--cog-color));
+    height: 15px;
+    width: 125px;
+    left: -55px
+}
+
+.cog-three .teeth.horizontal {
+    left: -70px;
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 25px;
+    width: 160px
+}
+.cog-four .teeth.horizontal {
+    left: -100px;
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 25px;
+    width: 220px
+}
+.cog-five .teeth.horizontal {
+    left: -46px;
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 90px,var(--cog-color) 90px,var(--cog-color));
+    height: 15px;
+    width: 115px
+}
+
+.teeth.horizontal::after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg)
+}
+
+.cog-one .teeth.horizontal::after {
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 25px;
+    width: 170px
+}
+
+.cog-two .teeth.horizontal::after {
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 80px,var(--cog-color) 80px,var(--cog-color));
+    height: 15px;
+    width: 125px
+}
+
+.cog-three .teeth.horizontal::after {
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 25px;
+    width: 160px
+}
+.cog-four .teeth.horizontal::after {
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 120px,var(--cog-color) 120px,var(--cog-color));
+    height: 25px;
+    width: 220px
+}
+.cog-five .teeth.horizontal::after {
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 90px,var(--cog-color) 90px,var(--cog-color));
+    height: 15px;
+    width: 115px
+}
+
+
+
+.example{
+    position: fixed;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    border: 3px solid #09a0ff;
+    padding: 30px 110px 0 30px;
+}
+.e {
+    --cog-inner-size: 10px;
+    --cog-outer-size: 20px;
+    --start-rotation: 0deg;
+    --end-rotation: 360deg;
+    position: relative;
+    width: var(--cog-inner-size);
+    height: var(--cog-inner-size);
+    background: transparent;
+    border-radius: 50%;
+    border: var(--cog-outer-size) solid var(--cog-color);
+    margin-bottom: 40px;
+    
+}
+.e span{
+    position: absolute;
+    left: 55px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+.e_1 {
+    --cog-color: #f29a38;
+    --cog-accent-color: #f29a38;
+}
+.e_2 {
+    --cog-color: #d94a3c;
+    --cog-accent-color: #d94a3c;
+}
+.e_3 {
+    --cog-color: #4a7cdd;
+    --cog-accent-color: #4a7cdd;
+}
+.e_4 {
+    --cog-color: #ebb754;
+    --cog-accent-color: #ebb754;
+}
+.e_5 {
+    --cog-color: #469f5d;
+    --cog-accent-color: #469f5d;
+}
+
+.e::before {
+    content: '';
+    position: absolute;
+    width: calc(var(--cog-inner-size)+10px);
+    height: calc(var(--cog-inner-size)+10px);
+    border: 3px solid var(--cog-accent-color);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.e::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--cog-inner-size)+var(--cog-outer-size) * 2 - 20px);
+    height: calc(var(--cog-inner-size)+var(--cog-outer-size) * 2 - 20px);
+    border: 3px solid var(--cog-accent-color);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.e .teeth.vertical {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 60px,var(--cog-color) 60px,var(--cog-color));
+    height: 75px;
+    width: 15px;
+    top: -32px
+}
+
+.teeth.vertical::after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg)
+}
+
+.e .teeth.vertical::after {
+    background: linear-gradient(to bottom,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 60px,var(--cog-color) 60px,var(--cog-color));
+    height: 75px;
+    width: 15px
+}
+
+.teeth.horizontal {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%
+}
+
+.e .teeth.horizontal {
+    left: -32px;
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 60px,var(--cog-color) 60px,var(--cog-color));
+    height: 15px;
+    width: 75px
+}
+
+.teeth.horizontal::after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg)
+}
+
+.e .teeth.horizontal::after {
+    background: linear-gradient(to right,var(--cog-color),var(--cog-color) 30px,transparent 30px,transparent 60px,var(--cog-color) 60px,var(--cog-color));
+    height: 15px;
+    width: 75px
+}
+
+.box-canvas .result{
+    position: absolute;
+    left: 580px;
+    top: 0;
+    font-size: 80px;
+    font-weight: bold;
+    color: #4a7cdd;
+    white-space: nowrap;
+}
+.box-canvas .result.show{
+    display: block;
+    animation: showResult 1s linear;
+}
+@keyframes showResult {
+    0%{
+        opacity: 1;
+        color: red;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        color: #4a7cdd;
+    }
+}
+.box-canvas .result.hide{
+    display: none;
+}
+.back{
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1000;;
+    display: block;
+    width: 60px;
+}
+.back img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
